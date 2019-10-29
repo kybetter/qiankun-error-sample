@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>s-app</title>
+    <!-- <meta name="importmap-type" content="systemjs-importmap"> -->
+    <!-- 通过 SystemJS 加载子应用的入口 js 文件和公用依赖 -->
+    <!-- <script type="systemjs-importmap">
+      {
+        "imports": {
+          "child": "http://localhost:8089/sub.app.js",
+          "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.7/system/single-spa.min.js",
+          "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js",
+          "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js"
+        }
+      }
+    </script> -->
+    <!-- <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.7/system/single-spa.min.js" as="script" crossorigin="anonymous" /> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/system.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/amd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/named-exports.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/named-register.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/use-default.min.js"></script> -->
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but s-app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="container"></div>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <!-- <script>
+      window.SystemJS = window.System;
+      SystemJS.import('main');
+    </script>
+    <script>
+        (function() {
+          Promise.all([System.import('single-spa'), System.import('vue'), System.import('vue-router')]).then(function (modules) {
+            var singleSpa = modules[0];
+            var Vue = modules[1];
+            var VueRouter = modules[2];
+  
+            Vue.use(VueRouter)
+  
+            singleSpa.registerApplication(
+              'child',
+              () => System.import('child'),
+              location => true
+            );
+            
+            // 注册应用
+            // singleSpa.registerApplication(
+            //   'app1',
+            //   () => System.import('app1'),
+            //   // 当url前缀为 /app1 的时候.返回 true (底层路由)
+            //   location => location.pathname.startsWith('/app1')
+            // )
+            //singleSpa 启动
+            singleSpa.start();
+          })
+        })()
+      </script> -->
+  </body>
+</html>
