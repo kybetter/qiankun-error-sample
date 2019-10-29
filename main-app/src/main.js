@@ -1,25 +1,20 @@
 import Vue from 'vue';
-// import App from './App.vue';
-import Framework from './Framework.vue';
-// import store from './store';
-// import router from './router';
-// import singleSpaVue from 'single-spa-vue';
-// import { registerApplication, start } from 'single-spa';
-// import systemjs from 'systemjs/dist/extras/amd';
-// import importHTML,{ importEntry } from 'import-html-entry';
-import fetch from 'isomorphic-fetch';
+import App from './App.vue';
+import store from './store';
+import router from './router';
+import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start } from 'qiankun';
 
-import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start } from './dist/index.esm.js';
+Vue.config.productionTip = false;
+
 
 let app = null;
 
 function render({ appContent, loading }) {
-  /*
-  examples for vue
-   */
   if (!app) {
     app = new Vue({
       el: '#container',
+      router,
+      store,
       data() {
         return {
           content: appContent,
@@ -27,7 +22,7 @@ function render({ appContent, loading }) {
         };
       },
       render(h) {
-        return h(Framework, {
+        return h(App, {
           props: {
             content: this.content,
             loading: this.loading,
@@ -41,22 +36,26 @@ function render({ appContent, loading }) {
   }
 }
 
+render({ loading: true });
+
 function genActiveRule(routerPrefix) {
   return location => location.pathname.startsWith(routerPrefix);
 }
 
-render({ loading: true });
 
-Vue.config.productionTip = false;
-
-const request = url =>
-  fetch(url, {
-    referrerPolicy: 'origin-when-cross-origin',
-  });
+// const request = url =>
+//   fetch(url, {
+//     referrerPolicy: 'origin-when-cross-origin',
+//   });
 
 registerMicroApps(
   [
-    { name: 'child-app', entry: '//localhost:8080', render, activeRule: genActiveRule('/vue') },
+    { 
+      name: 'Home', 
+      entry: '//localhost:8081', 
+      render, 
+      activeRule: genActiveRule('/child') 
+    },
   ],
   {
     beforeLoad: [
@@ -75,12 +74,13 @@ registerMicroApps(
       },
     ],
   },
-  {
-    fetch: request,
-  },
+  // {
+  //   fetch: request,
+  // },
 );
 
-setDefaultMountApp('/vue');
-runAfterFirstMounted(() => console.info('first app mounted'));
+setDefaultMountApp('/');
+// runAfterFirstMounted(() => console.info('first app mounted'));
 
-start({ prefetch: true, fetch: request });
+// start({ prefetch: true, fetch: request });
+start();

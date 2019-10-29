@@ -5,23 +5,25 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
-// new Vue({
-//   render: (h) => h(App),
-//   router,
-//   store,
-//   el: '#vueRoot'
-// });
+new Vue({
+  render: (h) => h(App),
+  router,
+  store,
+  el: '#app'
+});
 
 let instance = null;
 
 export async function bootstrap() {
-  console.log('react app bootstraped');
+  console.log('vue app bootstraped');
 }
 
 export async function mount(props) {
   console.log('props from main framework', props);
   instance = new Vue({
-    el: '#vueRoot',
+    el: '#app',
+    router,
+    store,
     render: h => h(App),
   });
 }

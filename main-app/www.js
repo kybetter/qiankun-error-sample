@@ -9,4 +9,4 @@ app.use(cors())
 app.use('/', express.static(path.join(__dirname, 'dist')))
 
 
-app.listen(8081)
+app.listen(8080)
