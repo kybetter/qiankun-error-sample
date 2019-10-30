@@ -2,10 +2,14 @@ import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
 import router from './router';
+import AntdUI from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
+
 import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start } from 'qiankun';
 
 Vue.config.productionTip = false;
 
+Vue.use(AntdUI);
 
 let app = null;
 
@@ -51,28 +55,23 @@ function genActiveRule(routerPrefix) {
 registerMicroApps(
   [
     { 
-      name: 'Home', 
+      name: 'sub01', 
       entry: '//localhost:8081', 
       render, 
       activeRule: genActiveRule('/child') 
     },
   ],
   {
-    beforeLoad: [
-      app => {
-        console.log('before load', app);
-      },
-    ],
-    beforeMount: [
-      app => {
-        console.log('before mount', app);
-      },
-    ],
-    afterUnmount: [
-      app => {
-        console.log('after unload', app);
-      },
-    ],
+    beforeLoad: app => {
+      console.log('before load', app);
+    },
+    beforeMount: app => {
+      console.log('before mount', app);
+    },
+    afterUnmount: app => {
+      console.log('afterUnmount', app);
+      app.render({appContent: '', loading: false});
+    },
   },
   // {
   //   fetch: request,

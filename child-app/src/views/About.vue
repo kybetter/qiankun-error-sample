@@ -1,5 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>我是子应用的 about 路由页面</h1>
   </div>
 </template>

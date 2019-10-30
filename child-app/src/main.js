@@ -29,6 +29,29 @@ export async function mount(props) {
 }
 
 export async function unmount() {
+  console.log('unmount执行了');
   instance.$destroy();
   instance = null;
 }
+
+// function run() {
+//   let instance = null;
+//   return {
+//     bootstrap: async () => {
+//       console.log('vue app bootstraped');
+//     },
+//     mount: (props) => {
+//       console.log('props from main framework', props);
+//       instance = new Vue({
+//         el: '#app',
+//         router,
+//         store,
+//         render: h => h(App),
+//       });
+//     },
+//     unmount: async () => {
+//       instance.$destroy();
+//       instance = null;
+//     }
+//   };
+// }
