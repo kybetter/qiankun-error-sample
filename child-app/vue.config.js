@@ -10,6 +10,7 @@ module.exports = {
   // css: {
   //   extract: false,
   // },
+  publicPath: '//localhost:8081/',
   chainWebpack(config) {
     config.output.set('library', `${packageName}-[name]`)
     config.output.set('libraryTarget', 'umd')

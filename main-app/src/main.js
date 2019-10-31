@@ -43,6 +43,7 @@ function render({ appContent, loading }) {
 render({ loading: true });
 
 function genActiveRule(routerPrefix) {
+  console.log('-----------', routerPrefix);
   // return location => location.pathname.startsWith(routerPrefix);
   return location => location.hash.startsWith('#' + routerPrefix)
 }

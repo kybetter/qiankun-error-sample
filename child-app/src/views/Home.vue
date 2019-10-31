@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <h1>我是子应用的首页路由页面</h1>
+    <img src="../assets/logo.png" alt="">
+    <h1 class="home-h1">我是子应用的首页路由页面</h1>
   </div>
 </template>
 
@@ -15,3 +16,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.home-h1 {
+  background: url(../assets/logo.png)
+}
+</style>

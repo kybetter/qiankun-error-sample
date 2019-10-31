@@ -5,21 +5,29 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
-new Vue({
-  render: (h) => h(App),
-  router,
-  store,
-  el: '#app'
-});
+// new Vue({
+//   render: (h) => h(App),
+//   router,
+//   store,
+//   el: '#app'
+// });
 
 let instance = null;
-
+console.log('-----------', router);
+// router.options.routes = router.options.routes.map(route => {
+//   return {
+//     ...route,
+//     path: '/child' + route.path,
+//   }
+// })
 export async function bootstrap() {
   console.log('vue app bootstraped');
 }
 
 export async function mount(props) {
   console.log('props from main framework', props);
+  // console.log(router);
+
   instance = new Vue({
     el: '#app',
     router,

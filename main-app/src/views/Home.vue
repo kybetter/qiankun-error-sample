@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <h1>我是主应用的首页路由页面</h1>
+    <!-- <img src="../assets/logo.png" alt=""> -->
+    <h1 class="home-h1">我是主应用的首页路由页面</h1>
   </div>
 </template>
 
