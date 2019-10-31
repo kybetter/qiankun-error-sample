@@ -5,15 +5,15 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
-// new Vue({
-//   render: (h) => h(App),
-//   router,
-//   store,
-//   el: '#app'
-// });
+new Vue({
+  render: (h) => h(App),
+  router,
+  store,
+  el: '#app'
+});
 
 let instance = null;
-console.log('-----------', router);
+// console.log('-----------', router);
 // router.options.routes = router.options.routes.map(route => {
 //   return {
 //     ...route,

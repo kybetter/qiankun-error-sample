@@ -1,65 +1,31 @@
 <template>
-  <div id="root">
-    <a-layout id="components-layout-demo-top-side-2">
-    <a-layout-header class="header">
-      <div class="logo" />
-      <a-menu
-        theme="dark"
-        mode="horizontal"
-        :defaultSelectedKeys="['2']"
-        :style="{ lineHeight: '64px' }"
-        @click="goto"
-      >
-        <a-menu-item key="/">主应用首页</a-menu-item>
-        <a-menu-item key="/about">主应用 about</a-menu-item>
-        <a-menu-item key="/child">子应用首页</a-menu-item>
-      </a-menu>
-    </a-layout-header>
-    <a-layout>
-      <a-layout-sider width="200" style="background: #fff">
-        <a-menu
-          mode="inline"
-          :defaultSelectedKeys="['1']"
-          :defaultOpenKeys="['sub1']"
-          :style="{ height: '100%', borderRight: 0 }"
-          @click="goto"
-        >
-          <a-sub-menu key="sub1">
-            <span slot="title"><a-icon type="user" />子应用菜单</span>
-            <a-menu-item key="/child/about">about菜单</a-menu-item>
-            <a-menu-item key="/child/other">other菜单</a-menu-item>
-          </a-sub-menu>
-        </a-menu>
-      </a-layout-sider>
-      <a-layout style="padding: 0 24px 24px">
-        <a-layout-content
-          :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
-        >
-          <router-view/>
-          <div id="router-view" v-html="content"></div>
-        </a-layout-content>
-      </a-layout>
-    </a-layout>
-  </a-layout>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> | 
-      <router-link to="/child">Child</router-link>
-    </div> -->
-    
-    <!-- <div v-if="loading">loading</div> -->
+  <div>
+    <router-view v-if="!isSub" />
+    <sub-layout v-else :loading="loading" :content="content">
+      <div id="router-view" v-html="content"></div>
+    </sub-layout>
   </div>
 </template>
 <script>
+import SubLayout from './views/SubLayout.vue';
+
 export default {
   name: 'App',
+  components: {
+    SubLayout
+  },
   props: {
     loading: Boolean,
     content: String,
   },
+  computed: {
+    isSub() {
+      return this.$route.path.match('child');
+    }
+  },
   methods: {
     goto(op) {
-      console.log(op);
+      // console.log(op);
       //location.href = href
       this.$router.push(op.key)
     }

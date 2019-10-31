@@ -31,6 +31,10 @@ function render({ appContent, loading }) {
             content: this.content,
             loading: this.loading,
           },
+          // provide: {
+          //   content: this.content,
+          //   loading: this.loading,
+          // }
         });
       },
     });
@@ -43,7 +47,7 @@ function render({ appContent, loading }) {
 render({ loading: true });
 
 function genActiveRule(routerPrefix) {
-  console.log('-----------', routerPrefix);
+  // console.log('-----------', routerPrefix);
   // return location => location.pathname.startsWith(routerPrefix);
   return location => location.hash.startsWith('#' + routerPrefix)
 }
@@ -59,6 +63,7 @@ registerMicroApps(
     { 
       name: 'sub01', 
       entry: '//localhost:8081', 
+      // entry: {scripts: ['//localhost:8081/js/app.js']}, 
       render, 
       activeRule: genActiveRule('/child') 
     },
@@ -80,7 +85,7 @@ registerMicroApps(
   // },
 );
 
-setDefaultMountApp('/');
+// setDefaultMountApp('/');
 // runAfterFirstMounted(() => console.info('first app mounted'));
 
 // start({ prefetch: true, fetch: request });
