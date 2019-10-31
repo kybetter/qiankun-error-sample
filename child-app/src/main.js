@@ -13,13 +13,7 @@ new Vue({
 });
 
 let instance = null;
-// console.log('-----------', router);
-// router.options.routes = router.options.routes.map(route => {
-//   return {
-//     ...route,
-//     path: '/child' + route.path,
-//   }
-// })
+
 export async function bootstrap() {
   console.log('vue app bootstraped');
 }
@@ -41,25 +35,3 @@ export async function unmount() {
   instance.$destroy();
   instance = null;
 }
-
-// function run() {
-//   let instance = null;
-//   return {
-//     bootstrap: async () => {
-//       console.log('vue app bootstraped');
-//     },
-//     mount: (props) => {
-//       console.log('props from main framework', props);
-//       instance = new Vue({
-//         el: '#app',
-//         router,
-//         store,
-//         render: h => h(App),
-//       });
-//     },
-//     unmount: async () => {
-//       instance.$destroy();
-//       instance = null;
-//     }
-//   };
-// }
