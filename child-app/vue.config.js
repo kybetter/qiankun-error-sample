@@ -1,10 +1,10 @@
 const packageName = 'vue'
 
 module.exports = {
-  // pages: {
-    // index: 'src/main.js',
-    // sub: 'src/sub-main.js',
-  // },
+  pages: {
+    index: 'src/main.js',
+    sub: 'src/sub-main.js',
+  },
   // filenameHashing: false,
   // productionSourceMap: false,
   // css: {

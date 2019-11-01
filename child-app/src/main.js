@@ -12,26 +12,26 @@ new Vue({
   el: '#app'
 });
 
-let instance = null;
+// let instance = null;
 
-export async function bootstrap() {
-  console.log('vue app bootstraped');
-}
+// export async function bootstrap() {
+//   console.log('vue app bootstraped');
+// }
 
-export async function mount(props) {
-  console.log('props from main framework', props);
-  // console.log(router);
+// export async function mount(props) {
+//   console.log('props from main framework', props);
+//   // console.log(router);
 
-  instance = new Vue({
-    el: '#app',
-    router,
-    store,
-    render: h => h(App),
-  });
-}
+//   instance = new Vue({
+//     el: '#app',
+//     router,
+//     store,
+//     render: h => h(App),
+//   });
+// }
 
-export async function unmount() {
-  console.log('unmount执行了');
-  instance.$destroy();
-  instance = null;
-}
+// export async function unmount() {
+//   console.log('unmount执行了');
+//   instance.$destroy();
+//   instance = null;
+// }

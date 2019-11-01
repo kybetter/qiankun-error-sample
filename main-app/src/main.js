@@ -62,7 +62,7 @@ registerMicroApps(
   [
     { 
       name: 'sub01', 
-      entry: '//localhost:8081', 
+      entry: '//localhost:8081/sub.html', 
       // entry: {scripts: ['//localhost:8081/js/app.js']}, 
       render, 
       activeRule: genActiveRule('/child') 
