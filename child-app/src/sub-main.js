@@ -2,45 +2,28 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import singleSpaVue from 'single-spa-vue';
 
 Vue.config.productionTip = false;
-
-// new Vue({
-//   render: (h) => h(App),
-//   router,
-//   store,
-//   el: '#app'
-// });
-
-// const vueLifecycles = singleSpaVue({
-//   Vue,
-//   appOptions: {
-//     render: (h) => h(App),
-//     router,
-//     store,
-//   },
-// });
-
-// export const bootstrap = vueLifecycles.bootstrap;
-// export const mount = vueLifecycles.mount;
-// export const unmount = vueLifecycles.unmount;
-
 let instance = null;
 
 export async function bootstrap() {
-  console.log('react app bootstraped');
+  console.log('vue app bootstraped');
 }
 
 export async function mount(props) {
   console.log('props from main framework', props);
+  // console.log(router);
+
   instance = new Vue({
-    el: '#vueRoot',
+    el: '#app',
+    router,
+    store,
     render: h => h(App),
   });
 }
 
 export async function unmount() {
+  console.log('unmount执行了');
   instance.$destroy();
   instance = null;
 }

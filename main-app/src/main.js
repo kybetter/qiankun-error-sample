@@ -5,7 +5,7 @@ import router from './router';
 import AntdUI from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
-import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start } from 'qiankun';
+import { registerMicroApps, start } from 'qiankun';
 
 Vue.config.productionTip = false;
 
@@ -31,10 +31,6 @@ function render({ appContent, loading }) {
             content: this.content,
             loading: this.loading,
           },
-          // provide: {
-          //   content: this.content,
-          //   loading: this.loading,
-          // }
         });
       },
     });
@@ -47,23 +43,15 @@ function render({ appContent, loading }) {
 render({ loading: true });
 
 function genActiveRule(routerPrefix) {
-  // console.log('-----------', routerPrefix);
-  // return location => location.pathname.startsWith(routerPrefix);
-  return location => location.hash.startsWith('#' + routerPrefix)
+  return location => location.pathname.startsWith(routerPrefix);
+  // return location => location.hash.startsWith('#' + routerPrefix)
 }
-
-
-// const request = url =>
-//   fetch(url, {
-//     referrerPolicy: 'origin-when-cross-origin',
-//   });
 
 registerMicroApps(
   [
     { 
-      name: 'sub01', 
+      name: 'child', 
       entry: '//localhost:8081/sub.html', 
-      // entry: {scripts: ['//localhost:8081/js/app.js']}, 
       render, 
       activeRule: genActiveRule('/child') 
     },
@@ -80,13 +68,6 @@ registerMicroApps(
       app.render({appContent: '', loading: false});
     },
   },
-  // {
-  //   fetch: request,
-  // },
 );
 
-// setDefaultMountApp('/');
-// runAfterFirstMounted(() => console.info('first app mounted'));
-
-// start({ prefetch: true, fetch: request });
 start();
