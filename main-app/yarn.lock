@@ -3747,9 +3747,9 @@ hex-color-regex@^1.1.0:
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
 highlight.js@^9.6.0:
-  version "9.15.10"
-  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.15.10.tgz#7b18ed75c90348c045eef9ed08ca1319a2219ad2"
-  integrity sha1-exjtdckDSMBF7vntCMoTGaIhmtI=
+  version "9.18.5"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
+  integrity sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -6790,12 +6790,7 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
-single-spa-vue@^1.5.2:
-  version "1.5.4"
-  resolved "https://registry.npm.taobao.org/single-spa-vue/download/single-spa-vue-1.5.4.tgz#28290b8992a0e9868edf4d28e4ad997822039576"
-  integrity sha1-KCkLiZKg6YaO300o5K2ZeCIDlXY=
-
-single-spa@^4.3.4, single-spa@^4.4.1:
+single-spa@^4.3.4:
   version "4.4.1"
   resolved "https://registry.npm.taobao.org/single-spa/download/single-spa-4.4.1.tgz#660a0e5f93f7e7d06fc40e2b126b81102f0741af"
   integrity sha1-ZgoOX5P359BvxA4rEmuBEC8HQa8=
